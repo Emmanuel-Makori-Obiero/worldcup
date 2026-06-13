@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" class="h-full bg-zinc-950">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Cup Live Stream</title>
+    <!-- Compiled Tailwind CSS Stylesheet Link -->
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body class="flex min-h-full flex-col font-sans text-zinc-100 antialiased">
+    <!-- Top Navigation Bar -->
+    <header
+      class="sticky top-0 z-40 border-b border-zinc-800 bg-zinc-900/80 backdrop-blur-md"
+    >
+      <div
+        class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
+      >
+        <!-- Brand Logo -->
+        <div class="flex items-center gap-3">
+          <span class="relative flex h-2.5 w-2.5">
+            <span
+              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-500 opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex h-2.5 w-2.5 rounded-full bg-rose-600"
+            ></span>
+          </span>
+          <span
+            class="text-lg font-bold uppercase tracking-wider text-white sm:text-xl"
+          >
+            WORLD<span class="text-rose-500">CUP</span> LIVE
+          </span>
+        </div>
+
+        <!-- Global Status Indicator -->
+        <div class="flex items-center gap-4">
+          <div
+            class="inline-flex items-center gap-1.5 rounded-md border border-rose-500/20 bg-rose-500/10 px-2.5 py-1 text-xs font-semibold tracking-wide text-rose-400"
+          >
+            LIVE
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content Workspace -->
+    <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
+      <!-- Structural Core Grid Layout -->
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-4">
+        <!-- Main Content Segment (Takes 3 out of 4 columns on large displays) -->
+        <div class="space-y-4 lg:col-span-3">
+          <!-- Video Container Module (Strict 16:9 Aspect Ratio) -->
+          <div
+            class="relative w-full overflow-hidden rounded-xl border border-zinc-800 bg-black shadow-2xl shadow-zinc-950/50 aspect-video"
+          >
+            <iframe
+              id="live-player"
+              src="https://lvpr.tv?v=ddd97tsknatwnzxx"
+              allowfullscreen
+              allow="autoplay; encrypted-media"
+              class="absolute inset-0 h-full w-full border-0"
+            >
+            </iframe>
+          </div>
+
+          <!-- Descriptive Metadata Panel -->
+          <div
+            class="border border-zinc-800/60 bg-zinc-900/50 p-6 rounded-xl backdrop-blur-sm"
+          >
+            <div
+              class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <div class="space-y-1">
+                <h1
+                  class="text-xl font-bold tracking-tight text-white sm:text-2xl"
+                >
+                  Live Match Broadcast
+                </h1>
+                <p class="text-sm text-zinc-400">
+                  Watch the tournament matches live in high definition.
+                </p>
+              </div>
+              <div class="flex items-center">
+                <button
+                  id="refresh-btn"
+                  class="inline-flex items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-800 px-4 py-2 text-sm font-medium text-zinc-200 transition-colors duration-150 hover:bg-zinc-700 hover:text-white active:bg-zinc-800"
+                >
+                  <svg
+                    class="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121 12m-7 7h-5v-5"
+                    ></path>
+                  </svg>
+                  Reload Player
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Monitoring and Diagnostics Sidebar -->
+        <div class="space-y-4 lg:col-span-1">
+          <!-- Diagnostic Metrics Block -->
+          <div class="border border-zinc-800 bg-zinc-900/30 p-5 rounded-xl">
+            <h2
+              class="text-xs font-semibold uppercase tracking-wider text-zinc-400"
+            >
+              Stream Info
+            </h2>
+            <dl class="mt-4 space-y-3.5">
+              <div
+                class="flex items-center justify-between border-b border-zinc-800/60 pb-3 text-sm"
+              >
+                <dt class="text-zinc-500">Status</dt>
+                <dd
+                  id="connection-status"
+                  class="flex items-center gap-2 font-medium text-emerald-400"
+                >
+                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  Online
+                </dd>
+              </div>
+              <div
+                class="flex items-center justify-between border-b border-zinc-800/60 pb-3 text-sm"
+              >
+                <dt class="text-zinc-500">Quality</dt>
+                <dd class="text-zinc-300">Auto (1080p HD)</dd>
+              </div>
+              <div class="flex items-center justify-between pt-1 text-sm">
+                <dt class="text-zinc-500">Server</dt>
+                <dd
+                  class="rounded bg-zinc-800 px-2 py-0.5 font-mono text-xs text-zinc-300"
+                >
+                  Main Feed
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- System Advisory Card -->
+          <div class="border border-zinc-800 bg-zinc-900/30 p-5 rounded-xl">
+            <h3
+              class="flex items-center gap-2 text-sm font-semibold text-zinc-300"
+            >
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                ></path>
+              </svg>
+              Troubleshooting
+            </h3>
+            <p class="mt-2.5 text-xs leading-relaxed text-zinc-400">
+              If the video freezes, buffers, or stops playing at any point,
+              click the
+              <strong class="text-zinc-300 font-medium">Reload Player</strong>
+              button to instantly refresh and reconnect the video stream.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Structural Footer Alignment -->
+    <footer class="mt-auto border-t border-zinc-900 bg-zinc-950 py-6">
+      <div
+        class="mx-auto max-w-7xl px-4 text-center text-xs text-zinc-600 sm:px-6 lg:px-8"
+      >
+        &copy; 2026 Live Tournament Stream. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Linked External JavaScript Component Logic -->
+    <script src="index.js"></script>
+  </body>
+</html>
